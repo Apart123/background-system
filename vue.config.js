@@ -36,7 +36,15 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    proxy: {
+      '/res': {
+        target: "http://127.0.0.1:7001"
+      },
+      '/api': {
+        target: "http://127.0.0.1:7001"
+      }
+    }
+    // before: require('./mock/mock-server.js') 这行代码标识发送的请求使用 mock-server 来进行处理
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
