@@ -26,7 +26,6 @@ router.beforeEach(async(to, from, next) => {
 
   if(to.meta.auth){
     // 说明页面需要鉴权
-    console.log(hasGetUserInfo);
     if(hasGetUserInfo){
       // 进入此 if，说明有用户信息，直接放行
       next();

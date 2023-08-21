@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <EditArticle mode="add"/>
+    <EditArticle mode="edit"/>
   </div>
 </template>
 
@@ -12,3 +12,7 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
