@@ -198,11 +198,14 @@ export default {
       });
     },
     openGitHubHandle(projectInfo) {
-        window.open(projectInfo.github);
+      window.open(projectInfo.github);
     },
     editProjectHandle(projectInfo) {
       this.dialogFormVisible = true;
-      this.form = {...projectInfo, description : projectInfo.description.toString()}
+      this.form = {
+        ...projectInfo,
+        description: projectInfo.description.toString(),  // Array 转换为 String
+      };
     },
     deleteProjectHandle(projectInfo) {
       this.$confirm("确定要删除此项目吗？", "提示", {
@@ -228,15 +231,15 @@ export default {
     },
     // 确认修改
     confirmEditProjectHandle() {
-        let obj = {...this.form};
-        obj.description = this.form.description.split(',');
-        obj.order = parseInt(this.form.order);
+      let obj = { ...this.form };
+      obj.description = this.form.description.split(",");
+      obj.order = parseInt(this.form.order);
 
-        setProject(obj.id, obj).then(()=>{
-            this.dialogFormVisible = false;
-            this.fetchData();
-            this.$message.success('修改成功');
-        })
+      setProject(obj.id, obj).then(() => {
+        this.dialogFormVisible = false;
+        this.fetchData();
+        this.$message.success("修改成功");
+      });
     },
   },
 };
